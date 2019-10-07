@@ -1,10 +1,12 @@
-{% csrf_token %}
-
-<nav>
+{% extends 'base.html' %}
+{% block content %}
+<div>
   <div class="nav-wrapper">
     {% if user.is_authenticated %}
       <h2>Welcome, {{ user.username }}!</h2>
       <ul>
+        <li><a href="{% url 'maps:newMap' %}">New Map</a></li>
+        <li>My Maps</li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
       </ul>
     {% else %}
@@ -15,4 +17,5 @@
       </ul>
     {% endif %}
   </div>
-</nav>
+</div>
+{% endblock %}
