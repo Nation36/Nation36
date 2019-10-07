@@ -16,11 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from students import views
+from maps import views
+
+router = routers.DefaultRouter()
+router.register(r'maps', views.MapViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('users.urls')),
+    path('user/', include('users.urls')),
+    path('user/', include('django.contrib.auth.urls')),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', include('maps.urls'))
 ]
