@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+{% if user.is_authenticated %}
+<link rel="stylesheet" href="{% static 'map_builder.css' %}">
+<div id = "app">
+  <div class="section-header">
+    <h4>Name Your Map:</h4>
+  </div>
+  <div class="name-entry">
+    <input id="name-field" v-model="new_map.name" type="text">
+  </div>
+  <div class="section-header">
+    <h4>Choose Your Background:</h4>
+  </div>
+  <div  class="backgrounds">
+    <img @click="set_background('C:\\Users\\TheNationatWar\\Documents\\GitHub\\Nation36\\Capstone\\DungeonBuilderGeb\\background_images\\dungeon-texture.jpg', {{user.id}})" name="dungeon" src="{% static 'dungeon-texture.jpg' %}" width="100" height="100">
+    <img @click="set_background('C:\\Users\\TheNationatWar\\Documents\\GitHub\\Nation36\\Capstone\\DungeonBuilderGeb\\background_images\\grass-texture.jpg', {{user.id}})" name="grass" src="{% static 'grass-texture.jpg' %}"  width="100" height="100">
+    <img @click="set_background('C:\\Users\\TheNationatWar\\Documents\\GitHub\\Nation36\\Capstone\\DungeonBuilderGeb\\background_images\\mountain-texture.jpg', {{user.id}})" name="mountain" src="{% static 'mountain-texture.jpg' %}"  width="100" height="100">
+  </div>
+  <div class="submit-button">
+    <button @click="create" type="button" id="submit">Submit</button>
+  </div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src = "{% static 'map_builder.js' %}"></script>
+{% else %}
+<div>
+  <h2>You must be logged in.</h2>
+</div>
+<div>
+  <ul>
+    <li><a href="{% url 'login' %}">Log in now.</a></li>
+    <li><a href="{% url 'users:signup' %}">Or sign up.</a></li>
+  </ul>
+</div>
+
+{% endif %}
+
+{% endblock %}

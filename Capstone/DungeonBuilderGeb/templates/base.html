@@ -1,8 +1,14 @@
 {% csrf_token %}
+{% load static %}
+<head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
 <div class="header">
-  <h1>Dungeon Builder geb</h1>
+  <h1><a href="{% url 'maps:home' %}">Dungeon Builder geb</a></h1>
 </div>
 <body>
   {% block content %}
   {% endblock %}
+  <script src="https://unpkg.com/vue"></script>
 </body>

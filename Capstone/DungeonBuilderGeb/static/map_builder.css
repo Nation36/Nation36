@@ -1,0 +1,25 @@
+.backgrounds {
+  display: grid;
+  grid-template-columns: repeat(3, 0.2fr);
+}
+
+.backgrounds img {
+  border: 1px solid black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.section-header h4 {
+  font-size: 20px;
+}
+
+#app {
+  margin-left: 15px
+}
+
+#submit {
+  margin-left: 10px;
+  margin-top: 30px;
+  background-color: rgb(116, 180, 232);
+  border: 1px solid black;
+}
