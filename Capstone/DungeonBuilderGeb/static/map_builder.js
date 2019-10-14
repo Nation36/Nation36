@@ -20,7 +20,7 @@ new Vue ({
           'X-CSRFToken': this.csrf_token
         },
         data: this.new_map
-      }).then(res => console.log(res))
+      }).then(res => window.location.assign("http://localhost:8000/new-map/layout"))
     },
     set_background: function(selected_background, user_id) {
       this.new_map.background = selected_background

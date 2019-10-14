@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<h5>Your Maps:</h5>
+<div class="">
+  {% for Map in map_list %}
+  <p>{{Map.name}}</p>
+  {% endfor %}
+</div>
+
+{% endblock %}
